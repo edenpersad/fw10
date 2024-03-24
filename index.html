@@ -50,15 +50,57 @@
 <body>
   <div class="grid-container">
     <div class="grid-item">
-      <div class="top-layer"><iframe title='Hectares of forests cut down or burned' src='https://www.theworldcounts.com/embeds/counters/93?background_color=none&color=white&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=100' style='border: none;' width="20000"></iframe><p>Hectares of forests cut down or burned, globally 2024</p></div>
+      <div class="top-layer">
+        <p id="deforestation"></p>
+        <p>Hectares of forests cut down or burned, globally 2024</p></div>
 
-      <div><iframe src="https://www.youtube.com/embed/wzvqIWRZjDA?si=VJwr7-zcW0BwPAA1&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: .9;"></iframe></div>
+      <div><iframe src="https://www.youtube.com/embed/wzvqIWRZjDA?si=VJwr7-zcW0BwPAA1&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" width="" height="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: .9;"></iframe></div>
 
     </div>
     <div class="grid-item">
-      <div class="top-layer"><iframe title='Hectares of forests cut down or burned' src='https://www.theworldcounts.com/embeds/counters/74?background_color=none&color=white&font_family=%22Helvetica+Neue%22%2C+Arial%2C+sans-serif&font_size=100' style='border: none;' height='150' width='1000'></iframe><p>Hectares of replanted forests, globally 2024</p></div>
-      <div><iframe src="https://www.youtube.com/embed/q9rQTB_Qr0A?si=a_FuJ4JZxytCOfIQ&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+      <div class="top-layer">
+        <p id="reforestation"></p>
+        <p>Hectares of replanted forests, globally 2024</p></div>
+      <div><iframe src="https://www.youtube.com/embed/q9rQTB_Qr0A?si=a_FuJ4JZxytCOfIQ&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
     </div>
   </div>
 </body>
+
+<script defer type="text/javascript">
+    function format(number, decimals) {
+      // Format the number to string with a max of {decimals}
+      return number.toLocaleString(undefined, {'minimumFractionDigits': decimals,'maximumFractionDigits': decimals})
+    }
+
+    function countUp(id, rate, decimals) {
+        // Fetch the number from local storage
+        var count = localStorage.getItem(id);
+
+        // If it's the very first visit to the page for a device, set to 0
+        if (!count) {
+            count = 0;
+            localStorage.setItem(id, count);
+        }
+
+        // Increment the number by the rate
+        count = parseFloat(count) + rate;
+
+        // Store the incremented number in local storage
+        localStorage.setItem(id, count);
+
+        // Format the incremented number
+        var formattedCount = format(count, decimals)
+
+        // Get the element by the ID
+        var s = document.getElementById(id);
+
+        // Set the text content to the formatted count
+        s.textContent = formattedCount;
+    }
+
+    setInterval(() => countUp("deforestation", 0.1, 1), 100);
+    setInterval(() => countUp("reforestation", 0.1, 1), 1000);
+  </script>
+
+
 </html>
