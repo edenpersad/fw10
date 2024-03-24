@@ -4,64 +4,83 @@
   <meta charset="UTF-8">
   <title>FW10</title>
   <style>
-  
-    * {
-      margin: 0;
-      padding: 0;
-    }
+ @import url("https://use.typekit.net/opq2nhu.css");
 
-    body {
-      background-color: #000000;
-      font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-    .grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);  /* Two columns with equal width */
-      height: 100vh;  /* Set height to 100 viewport height for full screen */
-    }
+  body {
+    background-color: #000000;
+    font-family: "neue-haas-grotesk-display", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
 
-    .grid-item {
+  }
+
+  p {
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Two columns with equal width */
+    height: 100vh;  /* Set height to 100 viewport height for full screen */
+  }
+
+  .grid-item {
       position: relative;  /* Establish stacking context for layering */
       display: flex;
       flex-direction: column;  /* Stack divs vertically */
       justify-content: center;  /* Center content horizontally */
       align-items: center;  /* Center content vertically */
       height: 100%;
+  }
+  .top-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;  /* Text color for top layer */
+    text-align: center;  /* Center text alignment */
+    z-index: 2;  /* Layer on top */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Center content horizontally */
+    align-items: center;  /* Center content vertically */
     }
 
-      .top-layer {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      color: white;  /* Text color for top layer */
-      text-align: center;  /* Center text alignment */
-      z-index: 2;  /* Layer on top */
-      display: flex;
-      flex-direction: column;
-      justify-content: center;  /* Center content horizontally */
-      align-items: center;  /* Center content vertically */
-    }
+  .counter {
+    font-size: 72px;
+    font-weight: 700 !important;
+  }
 
   </style>
 </head>
+
 <body>
   <div class="grid-container">
     <div class="grid-item">
       <div class="top-layer">
-        <p id="deforestation"></p>
-        <p>Hectares of forests cut down or burned, globally 2024</p></div>
-
-      <div><iframe src="https://www.youtube.com/embed/wzvqIWRZjDA?si=VJwr7-zcW0BwPAA1&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" width="" height="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: .9;"></iframe></div>
+        <p id="deforestation" class="counter"></p>
+        <p style="margin-bottom: .5em;">Hectares of forests cut down or burned</p>
+        <p style="font-size: .6em;">(1 hectare = 1/2 the MCG)</p>
+      </div>
+      <div><iframe src="https://www.youtube.com/embed/wzvqIWRZjDA?playlist=wzvqIWRZjDA&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;vq=hd1920" title="Deforestation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: brightness(.8);"></iframe></div>
 
     </div>
     <div class="grid-item">
       <div class="top-layer">
-        <p id="reforestation"></p>
-        <p>Hectares of replanted forests, globally 2024</p></div>
-      <div><iframe src="https://www.youtube.com/embed/q9rQTB_Qr0A?si=a_FuJ4JZxytCOfIQ&controls=0&autoplay=1&mute=1&autoloop=1&vq=hd2160" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen width="" height="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+        <p id="reforestation" class="counter"></p>
+        <p style="margin-bottom: .5em;">Hectares of replanted forests</p>
+        <p style="font-size: .6em;">(1 hectare = 1/2 the MCG)</p>
+      </div>
+      <div><iframe src="https://www.youtube.com/embed/q9rQTB_Qr0A?playlist=q9rQTB_Qr0A&amp;controls=0&amp;autoplay=1&amp;mute=1&amp;loop=1&amp;vq=hd2160" title="Forestation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: brightness(.8);"></iframe></div>
     </div>
   </div>
 </body>
@@ -104,3 +123,8 @@
 
 
 </html>
+
+
+
+
+
